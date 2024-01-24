@@ -20,8 +20,8 @@ class OptimizeViewController: UIViewController {
     
     private let optimizeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Optimized result:"
-        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.text = "1M Dataset Optimized result:"
+        label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .red
         return label
     }()
@@ -36,8 +36,8 @@ class OptimizeViewController: UIViewController {
     
     private let notOptimizeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Unoptimized result:"
-        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.text = "1M Dataset Unoptimized result:"
+        label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .red
         return label
     }()
@@ -135,13 +135,20 @@ class OptimizeViewController: UIViewController {
     @objc private func fetchOpt() {
         print(measurementsOptimize.count)
         viewModel.fetchOptimizeData(measurements: measurementsOptimize)
-    
+        viewModel.fetchNotOptimizeData(measurements: measurementsNotOptimize)
+        
         // The method to be used on a very large data set. for example: Millions of data...
-        viewModel.processMeasurementsAsynchronously(measurements: measurementsOptimize) { elapsedTime in
-            print("elapsed time: \(elapsedTime)")
+       /* viewModel.processMeasurementsAsynchronously(measurements: measurementsOptimize) { elapsedTime in
+            let calculatedElapsed = self.viewModel.formatResult(elapsedTime)
+            print(calculatedElapsed)
+            self.optimizeResultLabel.text = "\(calculatedElapsed)"
         }
         
-        viewModel.fetchNotOptimizeData(measurements: measurementsNotOptimize)
+        viewModel.processMeasurementsAsynchronouslyNotOptimized(measurements: measurementsNotOptimize) { elapsedTime in
+            let calculatedElapsed = self.viewModel.formatResult(elapsedTime)
+            self.notOptimizeResultLabel.text = "\(calculatedElapsed)"
+        }*/
+        
     }
     
     private func updateEvaluationResultLabel() {

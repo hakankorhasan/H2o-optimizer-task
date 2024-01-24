@@ -9,14 +9,14 @@ import Foundation
 
 extension Date {
     
+    //code used for non-optimized system
     public func toString(format: DateStyle.Format) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format.rawValue
         return formatter.string(from: self)
     }
     
-    public func formatToAnotherStyle(format: DateStyle.Format) -> Date? {
-        let formatter = DateFormatter()
+    public func formatToAnotherStyle(format: DateStyle.Format, formatter: DateFormatter) -> Date? {
         formatter.dateFormat = format.rawValue
         let dateString = formatter.string(from: self)
         return formatter.date(from: dateString)
@@ -24,6 +24,7 @@ extension Date {
     
 }
 
+//code used for non-optimized system
 extension String {
     public func toDate() -> Date? {
         let formatter = DateFormatter()
@@ -31,4 +32,5 @@ extension String {
         return formatter.date(from: self)
     }
 }
+
 

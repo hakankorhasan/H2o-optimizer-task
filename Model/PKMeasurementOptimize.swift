@@ -13,22 +13,6 @@ public struct PKMeasurementOptimize: Codable {
     public let startsAt: Date
     public let endsAt: Date
     public let results: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id, type, startsAt, endsAt, results
-    }
-        
-    public init(id: String? = nil,
-                type: String?,
-                startsAt: Date,
-                endsAt: Date,
-                results: String) {
-        self.id = id
-        self.type = type
-        self.startsAt = startsAt
-        self.endsAt = endsAt
-        self.results = results
-    }
 }
 
 struct CodeableHelper {
@@ -47,8 +31,10 @@ struct CodeableHelper {
         if let measurementOptimize = decodedObject as? PKMeasurementOptimize {
             
             // We can format date fields according to the type we want.
-            let startsAt = measurementOptimize.startsAt.formatToAnotherStyle(format: .dateAndTime) ?? measurementOptimize.startsAt
-            let endsAt = measurementOptimize.endsAt.formatToAnotherStyle(format: .dateAndTime) ?? measurementOptimize.endsAt
+            
+            let dateFormatter = DateFormatter()
+            let startsAt = measurementOptimize.startsAt.formatToAnotherStyle(format: .dateAndTime, formatter: dateFormatter) ?? measurementOptimize.startsAt
+            let endsAt = measurementOptimize.endsAt.formatToAnotherStyle(format: .dateAndTime, formatter: dateFormatter) ?? measurementOptimize.endsAt
                 
             let updatedObject = PKMeasurementOptimize(id: measurementOptimize.id, type: measurementOptimize.type, startsAt: startsAt, endsAt: endsAt, results: measurementOptimize.results)
                 

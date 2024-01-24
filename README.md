@@ -9,6 +9,13 @@ https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/0e2a7ff0-ec1
  - PKMeasurementOptimize: The `PKMeasurementOptimize` structure effectively utilizes Swift's Codable protocol. This automates JSON encoding and decoding processes, handling data models without requiring custom operations from the developer.
  - PKMeasurement: The `PKMeasurement` structure manually implements the `Encodable` and `Decodable` protocols. Handling date fields manually and adding custom code may be necessary.
  
+ 
+ 
+ # Extensions and CodingKeys Fixes
+  - When it comes to CodingKeys, in this particular case, it's not necessary because the service provides the data with the same key names (endsAt). If the keys were different (e.g., ends_at), you would need to use CodingKeys for proper serialization.
+ 
+  - Additionally, to optimize the date formatting process, you can create an extension for the Date type. This extension allows you to reuse a single DateFormatter instance, reducing the overhead of creating a new formatter every time.
+ 
  ## Asynchronous Data Processing (Big Data)
 
 To improve the performance of data processing, an asynchronous approach is implemented using GCD (Grand Central Dispatch). The `processMeasurementsAsynchronously` function demonstrates how to efficiently encode and decode a large dataset of `PKMeasurementOptimize` instances. (Millions of dataset...)
@@ -51,5 +58,6 @@ To improve the performance of data processing, an asynchronous approach is imple
 
  - PKMeasurementOptimize: Codable operations are generally safer and provide automatic error handling.
  - PKMeasurement: Manual operations may require explicit error handling, making the code more sensitive and error-prone.
+
 
 
