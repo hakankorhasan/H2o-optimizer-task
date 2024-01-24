@@ -51,7 +51,7 @@ To improve the performance of data processing, an asynchronous approach is imple
 3. **Performance Measurement:** Records the start and end times to calculate the elapsed time for data processing.
 
 
-# Comparison of two structures (`PKMeasurementOptimize` vs. `PKMeasurement`)
+# Comparison of two structures (**`PKMeasurementOptimize`** vs. **`PKMeasurement`**)
 
 ## Usage of Swift's Codable Protocol:
 
