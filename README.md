@@ -6,7 +6,22 @@ https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/0e2a7ff0-ec1
 
 ## Test results for a data set of 1 million size
 https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/ed143d1f-e6cb-4bf1-8b66-ac1b97e70bfb
+## 1. Decoding Operation Comparison: Optimized vs. Non-Optimized Model
 
+  ### Decoding Time:
+   - In the provided video, decoding operations for the non-optimized model take approximately 6 minutes and 40 seconds. This extended processing time highlights the inefficiency of the non-optimized model, especially when handling substantial amounts of data.
+   
+## 2. Memory Usage and CPU Consumption:
+### Before Optimization: 
+ - **Memory Usage:** The non-optimized model significantly consumes memory, reaching up to 2 GB during the decoding process.
+ - **CPU Utilization:** CPU usage remains high, peaking at 99%, indicating a resource-intensive operation.
+    
+### After Optimization: 
+ - **Memory Usage:** The optimized model, benefiting from enhancements like asynchronous data processing and memory-efficient date formatting, significantly reduces memory usage.
+ - **CPU Utilization:** CPU usage is optimized, providing a more streamlined and resource-efficient decoding operation.
+ 
+ ## 3. Optimization Impact:
+ The optimized model's decoding operation, completing in just 8 seconds on the optimized system, showcases remarkable improvements in efficiency and resource utilization.
  
 ## Extensions and CodingKeys Fixes
 
@@ -18,8 +33,10 @@ https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/ed143d1f-e6c
     
     - By using this extension, you can create a `DateFormatter` instance once and pass it as a parameter wherever needed, avoiding unnecessary formatter creation for each date operation. This optimization can significantly reduce the performance cost associated with date formatting.
     
+    
 ## Why Did We Use Generic Types for Encoder and Decoder in Our Model?
  - We chose to use generic types for our encoder and decoder to boost flexibility and minimize redundancy. This approach simplifies our codebase, making it adaptable to diverse data models without the need for model-specific implementations. By embracing generics, we align with Swift's principles, ensuring a concise and maintainable solution. This choice not only enhances scalability but also promotes a cleaner, more efficient code structure. Additionally, generics streamline date formatting within the decoding process, contributing to consistent and error-resistant code.
+ 
  
  ## Asynchronous Data Processing (Big Data)
 
@@ -32,6 +49,7 @@ To improve the performance of data processing, an asynchronous approach is imple
 2. **Dispatch Group:** Uses a dispatch group to track the completion of asynchronous tasks, ensuring the `notify` block is only executed when all tasks are finished.
 
 3. **Performance Measurement:** Records the start and end times to calculate the elapsed time for data processing.
+
 
 # Comparison of two structures (`PKMeasurementOptimize` vs. `PKMeasurement`)
 
