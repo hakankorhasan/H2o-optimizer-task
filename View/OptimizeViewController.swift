@@ -110,7 +110,7 @@ class OptimizeViewController: UIViewController {
     private func setupViewModel() {
         
        viewModel.optimizeCompletion = { [weak self] result in
-           //self?.resultLabel.text = result
+           
            if let formattedResult = self?.viewModel.formatResult(result) {
                 self?.optimizeResultLabel.text = formattedResult
            }
@@ -119,7 +119,7 @@ class OptimizeViewController: UIViewController {
        }
 
         viewModel.notOptimizeCompletion = { [weak self] result in
-           //self?.resultLabel.text = result
+           
             if let formattedResult = self?.viewModel.formatResult(result) {
                  self?.notOptimizeResultLabel.text = formattedResult
             }
@@ -136,9 +136,11 @@ class OptimizeViewController: UIViewController {
         print(measurementsOptimize.count)
         viewModel.fetchOptimizeData(measurements: measurementsOptimize)
     
-        /*viewModel.processMeasurementsAsynchronously(measurements: measurementsOptimize) { elapsedTime in
+        // The method to be used on a very large data set. for example: Millions of data...
+        viewModel.processMeasurementsAsynchronously(measurements: measurementsOptimize) { elapsedTime in
             self.optimizeResultLabel.text = "\(elapsedTime)"
-        }*/
+        }
+        
         viewModel.fetchNotOptimizeData(measurements: measurementsNotOptimize)
     }
     

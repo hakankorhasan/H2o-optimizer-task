@@ -11,7 +11,7 @@ https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/0e2a7ff0-ec1
  
  ## Asynchronous Data Processing (Big Data)
 
-To improve the performance of data processing, an asynchronous approach is implemented using GCD (Grand Central Dispatch). The `processMeasurementsAsynchronously` function demonstrates how to efficiently encode and decode a large dataset of `PKMeasurementOptimize` instances. (1 million dataset)
+To improve the performance of data processing, an asynchronous approach is implemented using GCD (Grand Central Dispatch). The `processMeasurementsAsynchronously` function demonstrates how to efficiently encode and decode a large dataset of `PKMeasurementOptimize` instances. (Millions of dataset...)
 
 ### Key Features:
 
