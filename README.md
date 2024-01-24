@@ -15,6 +15,9 @@ https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/0e2a7ff0-ec1
   - When it comes to CodingKeys, in this particular case, it's not necessary because the service provides the data with the same key names (endsAt). If the keys were different (e.g., ends_at), you would need to use CodingKeys for proper serialization.
  
   - Additionally, to optimize the date formatting process, you can create an extension for the Date type. This extension allows you to reuse a single DateFormatter instance, reducing the overhead of creating a new formatter every time.
+
+    ![image](https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/5fae5b8f-490f-4a2d-a0d7-2cbd05c838b8)
+
  
  ## Asynchronous Data Processing (Big Data)
 
