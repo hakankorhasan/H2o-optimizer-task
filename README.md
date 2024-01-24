@@ -1,17 +1,9 @@
 
 # Test Video
 https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/0e2a7ff0-ec1e-437f-acc3-0df453823962
-
-# PKMeasurementOptimize vs. PKMeasurement
-
-# Usage of Swift's Codable Protocol:
-
- - PKMeasurementOptimize: The `PKMeasurementOptimize` structure effectively utilizes Swift's Codable protocol. This automates JSON encoding and decoding processes, handling data models without requiring custom operations from the developer.
- - PKMeasurement: The `PKMeasurement` structure manually implements the `Encodable` and `Decodable` protocols. Handling date fields manually and adding custom code may be necessary.
  
- 
- 
- # Extensions and CodingKeys Fixes
+## Extensions and CodingKeys Fixes
+
   - When it comes to CodingKeys, in this particular case, it's not necessary because the service provides the data with the same key names (`endsAt`). If the keys were different (`e.g., ends_at`), you would need to use CodingKeys for proper serialization.
  
   - Additionally, to optimize the date formatting process, you can create an extension for the Date type. This extension allows you to reuse a single DateFormatter instance, reducing the overhead of creating a new formatter every time.
@@ -19,9 +11,9 @@ https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/0e2a7ff0-ec1
     ![image](https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/499fe988-af11-450e-b9eb-f34a22d10236)
     
     - By using this extension, you can create a `DateFormatter` instance once and pass it as a parameter wherever needed, avoiding unnecessary formatter creation for each date operation. This optimization can significantly reduce the performance cost associated with date formatting.
-
-
->>>>>>> 006f41363af6058b7aac72bc4f83acf73b843dce
+    
+## Why Did We Use Generic Types for Encoder and Decoder in Our Model?
+ - We chose to use generic types for our encoder and decoder to boost flexibility and minimize redundancy. This approach simplifies our codebase, making it adaptable to diverse data models without the need for model-specific implementations. By embracing generics, we align with Swift's principles, ensuring a concise and maintainable solution. This choice not only enhances scalability but also promotes a cleaner, more efficient code structure. Additionally, generics streamline date formatting within the decoding process, contributing to consistent and error-resistant code.
  
  ## Asynchronous Data Processing (Big Data)
 
@@ -35,33 +27,39 @@ To improve the performance of data processing, an asynchronous approach is imple
 
 3. **Performance Measurement:** Records the start and end times to calculate the elapsed time for data processing.
 
- # Data Fields: 
+# Comparison of two structures (`PKMeasurementOptimize` vs. `PKMeasurement`)
+
+## Usage of Swift's Codable Protocol:
+
+ - PKMeasurementOptimize: The `PKMeasurementOptimize` structure effectively utilizes Swift's Codable protocol. This automates JSON encoding and decoding processes, handling data models without requiring custom operations from the developer.
+ - PKMeasurement: The `PKMeasurement` structure manually implements the `Encodable` and `Decodable` protocols. Handling date fields manually and adding custom code may be necessary.
+ 
+## Data Fields: 
   
  - PKMeasurementOptimize: The `PKMeasurementOptimize` structure automatically handles date fields, eliminating complexity related to date transformations.
  - PKMeasurement: The `PKMeasurement` structure needs to manually convert and parse date fields to and from String, introducing additional complexity and potential sources of errors.
   
-# Code Readability:
+## Code Readability:
    
  - KMeasurementOptimize: The `PKMeasurementOptimize` structure provides the same functionality with less code. A simpler CodingKeys enum and automatic date handling contribute to more readable and concise code.
  - PKMeasurement: The `PKMeasurement` structure may require more code and manual processing, potentially leading to more complex code.
    
-# Force Unwrapping:
+## Force Unwrapping:
     
  - PKMeasurementOptimize: The `PKMeasurementOptimize` structure minimizes the use of forced unwrapping (`as!`) and promotes safer coding practices.
  - PKMeasurement: The `PKMeasurement` structure might include forced unwrapping, which could reduce the reliability of the application.
  
-# Performance and Optimization:
+## Performance and Optimization:
  
   - PKMeasurementOptimize: Manages automatic JSON encoding and decoding using the Codable protocol, often resulting in faster and optimized performance.
   - KMeasurement: Manually implementing encode and decode processes can lead to performance issues, especially when working with large datasets.
 
-  
-# General Design and API Conformance
+## General Design and API Conformance
   
  - PKMeasurementOptimize: Provides greater compliance with `Swift API Design Guidelines`. Effective use of Codable allows for a clearer and more comprehensive `API design`.
  - KMeasurement: Manually implemented encode and decode processes may increase the complexity of API design and require developers to focus on more details.
  
-# Error Handling:
+## Error Handling:
 
  - PKMeasurementOptimize: Codable operations are generally safer and provide automatic error handling.
  - PKMeasurement: Manual operations may require explicit error handling, making the code more sensitive and error-prone.
