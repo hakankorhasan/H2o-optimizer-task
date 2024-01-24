@@ -17,6 +17,11 @@ public struct PKMeasurementOptimize: Codable {
 
 struct CodeableHelper {
     
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        return formatter
+    }()
+    
     static func encode<T: Codable>(_ instance: T) throws -> Data {
         let encoder = JSONEncoder()
         return try encoder.encode(instance)
@@ -31,8 +36,6 @@ struct CodeableHelper {
         if let measurementOptimize = decodedObject as? PKMeasurementOptimize {
             
             // We can format date fields according to the type we want.
-            
-            let dateFormatter = DateFormatter()
             let startsAt = measurementOptimize.startsAt.formatToAnotherStyle(format: .dateAndTime, formatter: dateFormatter) ?? measurementOptimize.startsAt
             let endsAt = measurementOptimize.endsAt.formatToAnotherStyle(format: .dateAndTime, formatter: dateFormatter) ?? measurementOptimize.endsAt
                 

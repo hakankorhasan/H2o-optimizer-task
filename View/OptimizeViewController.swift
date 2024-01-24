@@ -84,7 +84,7 @@ class OptimizeViewController: UIViewController {
     
     private func configureDataArray() {
         // Belirli bir sayıda örnek veri oluşturuyoruz
-        for i in 1...2000 {
+        for i in 1...1000000 {
             let measurement = PKMeasurementOptimize(
                 id: "\(i)",
                 type: "Temperature",
@@ -95,7 +95,7 @@ class OptimizeViewController: UIViewController {
             measurementsOptimize.append(measurement)
         }
         
-        for i in 1...2000 {
+        for i in 1...1000000 {
             let measurement = PKMeasurement(
                 id: "\(i)",
                 type: "Temperature",
@@ -134,11 +134,11 @@ class OptimizeViewController: UIViewController {
     
     @objc private func fetchOpt() {
         print(measurementsOptimize.count)
-        viewModel.fetchOptimizeData(measurements: measurementsOptimize)
-        viewModel.fetchNotOptimizeData(measurements: measurementsNotOptimize)
+        //viewModel.fetchOptimizeData(measurements: measurementsOptimize)
+        //viewModel.fetchNotOptimizeData(measurements: measurementsNotOptimize)
         
         // The method to be used on a very large data set. for example: Millions of data...
-       /* viewModel.processMeasurementsAsynchronously(measurements: measurementsOptimize) { elapsedTime in
+        viewModel.processMeasurementsAsynchronously(measurements: measurementsOptimize) { elapsedTime in
             let calculatedElapsed = self.viewModel.formatResult(elapsedTime)
             print(calculatedElapsed)
             self.optimizeResultLabel.text = "\(calculatedElapsed)"
@@ -147,7 +147,7 @@ class OptimizeViewController: UIViewController {
         viewModel.processMeasurementsAsynchronouslyNotOptimized(measurements: measurementsNotOptimize) { elapsedTime in
             let calculatedElapsed = self.viewModel.formatResult(elapsedTime)
             self.notOptimizeResultLabel.text = "\(calculatedElapsed)"
-        }*/
+        }
         
     }
     
@@ -161,7 +161,6 @@ class OptimizeViewController: UIViewController {
            let evaluationText = String(format: "Optimized system is %.2f times faster than the non-optimized system.", ratio)
            evaluationResultLabel.text = evaluationText
         } else {
-            // Handle the case where conversion to Double or obtaining text fails
            evaluationResultLabel.text = "Optimization results are not available."
         }
     }
