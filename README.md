@@ -6,7 +6,7 @@ https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/0e2a7ff0-ec1
 
 ## Test results for a data set of 1 million size
 https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/ed143d1f-e6cb-4bf1-8b66-ac1b97e70bfb
-## 1. Decoding Operation Comparison: Optimized vs. Non-Optimized Model
+## 1. Operation Comparison: Optimized vs. Non-Optimized Model
 
   ### Decoding Time:
    - In the provided video, decoding operations for the non-optimized model take approximately 6 minutes and 40 seconds. This extended processing time highlights the inefficiency of the non-optimized model, especially when handling substantial amounts of data.
