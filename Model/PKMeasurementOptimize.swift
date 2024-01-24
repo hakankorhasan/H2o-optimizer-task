@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 public struct PKMeasurementOptimize: Codable {
     public let id: String?
     public let type: String?

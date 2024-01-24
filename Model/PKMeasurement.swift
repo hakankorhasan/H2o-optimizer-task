@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 public struct PKMeasurement: Codable {
     public let id : String?
     public let type : String?

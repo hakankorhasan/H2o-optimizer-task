@@ -20,3 +20,20 @@
     
  - PKMeasurementOptimize: The 'PKMeasurementOptimize' structure minimizes the use of forced unwrapping ('as!') and promotes safer coding practices.
  - PKMeasurement: The 'PKMeasurement' structure might include forced unwrapping, which could reduce the reliability of the application.
+ 
+# 5. Performance and Optimization:
+ 
+  - PKMeasurementOptimize: Manages automatic JSON encoding and decoding using the Codable protocol, often resulting in faster and optimized performance.
+  - KMeasurement: Manually implementing encode and decode processes can lead to performance issues, especially when working with large datasets.
+  
+# 6. General Design and API Conformance
+  
+ - PKMeasurementOptimize: Provides greater compliance with Swift API Design Guidelines. Effective use of Codable allows for a clearer and more comprehensive API design.
+ - KMeasurement: Manually implemented encode and decode processes may increase the complexity of API design and require developers to focus on more details.
+ 
+# 7. Error Handling:
+
+ - PKMeasurementOptimize: Codable operations are generally safer and provide automatic error handling.
+ - PKMeasurement: Manual operations may require explicit error handling, making the code more sensitive and error-prone.
+
+
