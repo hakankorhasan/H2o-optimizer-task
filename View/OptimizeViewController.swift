@@ -133,7 +133,12 @@ class OptimizeViewController: UIViewController {
     }
     
     @objc private func fetchOpt() {
+        print(measurementsOptimize.count)
         viewModel.fetchOptimizeData(measurements: measurementsOptimize)
+    
+        /*viewModel.processMeasurementsAsynchronously(measurements: measurementsOptimize) { elapsedTime in
+            self.optimizeResultLabel.text = "\(elapsedTime)"
+        }*/
         viewModel.fetchNotOptimizeData(measurements: measurementsNotOptimize)
     }
     

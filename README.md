@@ -26,6 +26,19 @@
   - PKMeasurementOptimize: Manages automatic JSON encoding and decoding using the Codable protocol, often resulting in faster and optimized performance.
   - KMeasurement: Manually implementing encode and decode processes can lead to performance issues, especially when working with large datasets.
   
+## Asynchronous Data Processing (Big Data)
+
+To improve the performance of data processing, an asynchronous approach is implemented using GCD (Grand Central Dispatch). The `processMeasurementsAsynchronously` function demonstrates how to efficiently encode and decode a large dataset of `PKMeasurementOptimize` instances.
+
+### Key Features:
+
+1. **Concurrent Processing:** Utilizes a concurrent dispatch queue (`com.example.processQueue`) for parallelizing tasks and improving efficiency.
+
+2. **Dispatch Group:** Uses a dispatch group to track the completion of asynchronous tasks, ensuring the `notify` block is only executed when all tasks are finished.
+
+3. **Performance Measurement:** Records the start and end times to calculate the elapsed time for data processing.
+
+  
 # 6. General Design and API Conformance
   
  - PKMeasurementOptimize: Provides greater compliance with Swift API Design Guidelines. Effective use of Codable allows for a clearer and more comprehensive API design.

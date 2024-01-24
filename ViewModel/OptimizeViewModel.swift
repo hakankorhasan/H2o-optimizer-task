@@ -56,6 +56,39 @@ class OptimizeViewModel {
         }
     }
     
+    /// The method to be used for very large data sets.
+    ///  For my example, the calculation time for 1 million data sets is 5 seconds.
+    func processMeasurementsAsynchronously(measurements: [PKMeasurementOptimize], completion: @escaping (String) -> Void) {
+        let queue = DispatchQueue(label: "com.example.processQueue", attributes: .concurrent)
+        let group = DispatchGroup()
+
+        var elapsedTime: TimeInterval = 0.0
+
+        queue.async(group: group) {
+            let startTime = Date()
+
+            do {
+                let encodedData = try CodeableHelper.encode(measurements)
+
+                if String(data: encodedData, encoding: .utf8) != nil {
+
+                    let _: [PKMeasurementOptimize] = try CodeableHelper.decode(from: encodedData)
+
+                    let endTime = Date()
+                    elapsedTime = endTime.timeIntervalSince(startTime)
+                } else {
+                    print("JSON String conversion error")
+                }
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+
+        group.notify(queue: DispatchQueue.main) {
+            completion("\(elapsedTime)")
+        }
+    }
+    
     func formatResult(_ result: String) -> String {
         
         if let doubleValue = Double(result) {
