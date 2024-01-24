@@ -17,6 +17,8 @@ https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/0e2a7ff0-ec1
   - Additionally, to optimize the date formatting process, you can create an extension for the Date type. This extension allows you to reuse a single DateFormatter instance, reducing the overhead of creating a new formatter every time.
 
     ![image](https://github.com/hakankorhasan/H2o-optimizer-task/assets/75501687/5fae5b8f-490f-4a2d-a0d7-2cbd05c838b8)
+    
+    - By using this extension, you can create a `DateFormatter` instance once and pass it as a parameter wherever needed, avoiding unnecessary formatter creation for each date operation. This optimization can significantly reduce the performance cost associated with date formatting.
  
  ## Asynchronous Data Processing (Big Data)
 
