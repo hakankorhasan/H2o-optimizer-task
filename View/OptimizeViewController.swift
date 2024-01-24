@@ -20,7 +20,7 @@ class OptimizeViewController: UIViewController {
     
     private let optimizeLabel: UILabel = {
         let label = UILabel()
-        label.text = "1M Dataset Optimized result:"
+        label.text = "Optimized result:"
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .red
         return label
@@ -36,7 +36,7 @@ class OptimizeViewController: UIViewController {
     
     private let notOptimizeLabel: UILabel = {
         let label = UILabel()
-        label.text = "1M Dataset Unoptimized result:"
+        label.text = "Unoptimized result:"
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .red
         return label
@@ -84,7 +84,7 @@ class OptimizeViewController: UIViewController {
     
     private func configureDataArray() {
         // Belirli bir sayıda örnek veri oluşturuyoruz
-        for i in 1...1000000 {
+        for i in 1...2000 {
             let measurement = PKMeasurementOptimize(
                 id: "\(i)",
                 type: "Temperature",
@@ -95,7 +95,7 @@ class OptimizeViewController: UIViewController {
             measurementsOptimize.append(measurement)
         }
         
-        for i in 1...1000000 {
+        for i in 1...2000 {
             let measurement = PKMeasurement(
                 id: "\(i)",
                 type: "Temperature",
@@ -134,11 +134,11 @@ class OptimizeViewController: UIViewController {
     
     @objc private func fetchOpt() {
         print(measurementsOptimize.count)
-        //viewModel.fetchOptimizeData(measurements: measurementsOptimize)
-        //viewModel.fetchNotOptimizeData(measurements: measurementsNotOptimize)
+        viewModel.fetchOptimizeData(measurements: measurementsOptimize)
+        viewModel.fetchNotOptimizeData(measurements: measurementsNotOptimize)
         
         // The method to be used on a very large data set. for example: Millions of data...
-        viewModel.processMeasurementsAsynchronously(measurements: measurementsOptimize) { elapsedTime in
+       /* viewModel.processMeasurementsAsynchronously(measurements: measurementsOptimize) { elapsedTime in
             let calculatedElapsed = self.viewModel.formatResult(elapsedTime)
             print(calculatedElapsed)
             self.optimizeResultLabel.text = "\(calculatedElapsed)"
@@ -147,7 +147,7 @@ class OptimizeViewController: UIViewController {
         viewModel.processMeasurementsAsynchronouslyNotOptimized(measurements: measurementsNotOptimize) { elapsedTime in
             let calculatedElapsed = self.viewModel.formatResult(elapsedTime)
             self.notOptimizeResultLabel.text = "\(calculatedElapsed)"
-        }
+        }*/
         
     }
     
