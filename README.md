@@ -1,4 +1,10 @@
 
+
+
+Uploading Simulator Screen Recording - iPhone 15 Pro Max - 2024-01-24 at 15.32.16.mp4…
+
+
+
 # PKMeasurementOptimize vs. PKMeasurement
 
 # 1. Usage of Swift's Codable Protocol:
