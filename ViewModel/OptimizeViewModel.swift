@@ -57,7 +57,7 @@ class OptimizeViewModel {
     }
     
     /// The method to be used for very large data sets.
-    ///  For my example, the calculation time for 1 million data sets is 5 seconds.
+    /// For my example, the calculation time for 1 million data sets is 5 seconds.
     func processMeasurementsAsynchronously(measurements: [PKMeasurementOptimize], completion: @escaping (String) -> Void) {
         let queue = DispatchQueue(label: "com.example.processQueue", attributes: .concurrent)
         let group = DispatchGroup()

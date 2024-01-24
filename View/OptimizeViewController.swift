@@ -138,7 +138,7 @@ class OptimizeViewController: UIViewController {
     
         // The method to be used on a very large data set. for example: Millions of data...
         viewModel.processMeasurementsAsynchronously(measurements: measurementsOptimize) { elapsedTime in
-            self.optimizeResultLabel.text = "\(elapsedTime)"
+            print("elapsed time: \(elapsedTime)")
         }
         
         viewModel.fetchNotOptimizeData(measurements: measurementsNotOptimize)
